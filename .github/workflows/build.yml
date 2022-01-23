@@ -1,4 +1,4 @@
-name: Build and Publish Pages
+name: Build the Project
 
 on:
   pull_request:
