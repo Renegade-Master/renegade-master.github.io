@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  compile:
+  build-and-compile-pages:
+    name: Build and Compile Pages to verify Pull Request
     runs-on: ubuntu-latest
 
     steps:
