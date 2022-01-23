@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  compile:
+  build-and-compile-pages:
+    name: Build and Compile Pages for Upload
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +21,7 @@ jobs:
       - name: Compile the website into static files
         uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-15
         with:
-          args: clean jsBrowserDistribution
+          args: clean build jsBrowserDistribution
 
       - name: Upload generated pages
         if: ${{ success() }}
@@ -30,9 +31,10 @@ jobs:
           path: |
             build/distributions/*
 
-  upload:
+  upload-compiled-pages:
+    name: "Upload Compiled Website to GH-Pages Branch"
     needs:
-      - compile
+      - build-and-compile-pages
 
     runs-on: ubuntu-latest
 

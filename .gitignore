@@ -1,3 +1,8 @@
+### Project Specific Additions ###
+
+# KotlinJS
+kotlin-js-store/
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/intellij+all,kotlin,node,gradle
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij+all,kotlin,node,gradle
