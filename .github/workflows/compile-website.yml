@@ -9,7 +9,7 @@ on:
     branches: [ development ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch: 
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -38,24 +38,21 @@ jobs:
           name: website-files
           path: |
             build/distributions/index.html
-            build/distributions/renegademaster-website.js
-      
-      - name: Checkout main branch
-        
+            build/distributions/renegademaster-website.js        
+
   upload:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - name: Checkout the main branch
         uses: actions/checkout@v2
         with:
           ref: main
-      
+
       - name: Download generated pages
         uses: actions/download-artifact@v2
         with:
           name: website-files
           path: ./
-      
+
       - name: Investigate
         run: cat ./*
-        
