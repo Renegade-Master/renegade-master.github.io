@@ -28,8 +28,7 @@ jobs:
         with:
           name: website-files
           path: |
-            build/distributions/index.html
-            build/distributions/renegademaster-website.js        
+            build/distributions/*
 
   upload:
     needs:
