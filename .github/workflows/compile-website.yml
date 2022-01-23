@@ -41,6 +41,7 @@ jobs:
       - name: Checkout the main branch
         uses: actions/checkout@v2
         with:
+          token: ${{ secrets.PAT_TOKEN }}
           ref: main
 
       - name: Download generated pages
@@ -55,8 +56,6 @@ jobs:
           cat ./renegademaster-website.js
 
       - name: Commit and Push
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
         run: |
           git config --global user.name 'Renegade-Master Action'
           git config --global user.email 'renegade-master@users.noreply.github.com'
