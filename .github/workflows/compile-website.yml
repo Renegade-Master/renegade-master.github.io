@@ -50,13 +50,16 @@ jobs:
           path: ./
 
       - name: Investigate
-        run: cat ./*
+        run: |
+          cat ./index.html
+          cat ./renegademaster-website.js
 
       - name: Commit and Push
-        uses: github-actions-x/commit@v2.8
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'main'
-          commit-message: 'Publish new Website version'
-          force-add: 'true'
-          files: index.html renegademaster-website.js
+          token: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --global user.name 'Renegade-Master Action'
+          git config --global user.email 'renegade-master@users.noreply.github.com'
+          git add ./index.html ./renegademaster-website.js
+          git commit -m "Update website files"
+          git push
