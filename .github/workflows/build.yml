@@ -1,0 +1,32 @@
+name: Build and Publish Pages
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  # Allows running this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the Main branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Compile the website into static files
+        uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-15
+        with:
+          args: clean build jsBrowserDistribution
+
+      - name: Upload generated pages
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: website-files
+          path: |
+            build/distributions/*
