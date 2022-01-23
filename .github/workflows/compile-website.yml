@@ -58,3 +58,12 @@ jobs:
 
       - name: Investigate
         run: cat ./*
+
+      - name: Commit and Push
+        uses: github-actions-x/commit@v2.8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'main'
+          commit-message: 'Publish new Website version'
+          force-add: 'true'
+          files: index.html renegademaster-website.js
