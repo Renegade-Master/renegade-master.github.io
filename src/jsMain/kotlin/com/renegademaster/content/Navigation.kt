@@ -17,9 +17,12 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import com.renegademaster.utils.ResourceHandler.getString
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.dom.A
+import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Section
@@ -30,8 +33,14 @@ import org.jetbrains.style.WtRows
 import org.jetbrains.style.WtSections
 import org.jetbrains.style.WtTexts
 
+
+/**
+ * Navigation component to facilitate navigation between pages
+ */
 @Composable
-fun Header() {
+fun Navigation() {
+    var counter: Int = remember { 0 }
+
     Section(attrs = {
         classes(WtSections.wtSectionBgGrayDark)
     }) {
@@ -39,37 +48,35 @@ fun Header() {
             Div({
                 classes(WtRows.wtRow, WtRows.wtRowSizeM)
             }) {
-                Logo()
-                Banner()
+                NavItem(getString("hello", counter++), "https://renegade-master.github.io/")
             }
         }
     }
 }
 
+/**
+ * A simple navigation item
+ *
+ * @param name The name of the navigation item
+ * @param url The url of the navigation item
+ */
 @Composable
-private fun Logo() {
-    Div(attrs = {
-        classes(WtCols.wtColInline)
-    }) {
-        A(attrs = {
-            target(ATarget.Blank)
-        }, href = "https://github.com/Renegade-Master/") {
-            Div(attrs = {
-                classes("renegademaster-logo", "_logo-renegademaster", "_size-3")
-            }) {}
-        }
-    }
-}
-
-@Composable
-private fun Banner() {
+fun NavItem(name: String, url: String) {
     Div(attrs = {
         classes(WtCols.wtColInline)
     }) {
         H1(attrs = {
             classes(WtCols.wtColInline, WtTexts.wtHero, WtTexts.wtText1ThemeDark)
         }) {
-            Text("Renegade Master")
+            A(attrs = {
+                target(ATarget.Blank)
+            }, href = url) {
+                Button(attrs = {
+
+                }) {
+                    Text(name)
+                }
+            }
         }
     }
 }

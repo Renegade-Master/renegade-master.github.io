@@ -1,8 +1,8 @@
 import org.jetbrains.compose.compose
 
 plugins {
-    kotlin("multiplatform") version "1.6.21"
-    id("org.jetbrains.compose") version "1.1.1"
+    kotlin("multiplatform")
+    id("org.jetbrains.compose")
 }
 
 group = "com.renegademaster"
@@ -27,13 +27,19 @@ kotlin {
         }
         binaries.executable()
     }
+
     sourceSets {
         val jsMain by getting {
+            kotlin.srcDir("src/main/kotlin")
+            resources.srcDir("src/main/resources")
+
             dependencies {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
+                implementation(npm("properties-reader", "2.2.0"))
             }
         }
+
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
