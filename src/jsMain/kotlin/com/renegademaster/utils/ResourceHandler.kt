@@ -30,12 +30,12 @@ object ResourceHandler {
      *  @return The String with the given ID.
      */
     fun getString(id: String, counter: Int = 0): String {
-        js("console.log('This is message [' + counter + ']')")
+        js("console.log('This is message [' + counter + ']');")
         return properties[id] ?: "NOT_FOUND"
     }
 
     private fun chooseProperties(locale: String): Map<String, String> {
-        //var propertiesReader = js("require('properties-reader')")
+        var propertiesReader = js("require('properties-reader');")
 
         val propertyFile: Map<String, String> = when (locale) {
             "de" -> mapOf(
@@ -44,6 +44,9 @@ object ResourceHandler {
             "fr" -> mapOf(
                 "hello" to "Bonjour le monde", "goodbye" to "Au revoir le monde"
             )
+            "test" -> {
+                propertiesReader("/path/to/properties.file") as Map<String, String>
+            }
             else -> mapOf(
                 "hello" to "Hello World", "goodbye" to "Goodbye World"
             )
