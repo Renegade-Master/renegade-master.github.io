@@ -35,7 +35,7 @@ object ResourceHandler {
     }
 
     private fun chooseProperties(locale: String): Map<String, String> {
-        var propertiesReader = js("require('properties-reader');")
+        //var propertiesReader = js("require('properties-reader');")
 
         val propertyFile: Map<String, String> = when (locale) {
             "de" -> mapOf(
@@ -45,7 +45,8 @@ object ResourceHandler {
                 "hello" to "Bonjour le monde", "goodbye" to "Au revoir le monde"
             )
             "test" -> {
-                propertiesReader("/path/to/properties.file") as Map<String, String>
+                mapOf("hello" to "Hello Test", "goodbye" to "Goodbye Test")
+                //propertiesReader("/path/to/properties.file") as Map<String, String>
             }
             else -> mapOf(
                 "hello" to "Hello World", "goodbye" to "Goodbye World"
