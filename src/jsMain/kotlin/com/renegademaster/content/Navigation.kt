@@ -40,6 +40,8 @@ import org.jetbrains.style.WtTexts
 @Composable
 fun Navigation() {
     var counter: Int = remember { 0 }
+    var btnText = remember { "Press Me" }
+    var btnCounter = remember { 0 }
 
     Section(attrs = {
         classes(WtSections.wtSectionBgGrayDark)
@@ -49,6 +51,24 @@ fun Navigation() {
                 classes(WtRows.wtRow, WtRows.wtRowSizeM)
             }) {
                 NavItem(getString("hello", counter++), "https://renegade-master.github.io/")
+            }
+        }
+        Div({ classes(WtContainer.wtContainer) }) {
+            Div({
+                classes(WtRows.wtRow, WtRows.wtRowSizeM)
+            }) {
+
+
+                Button(attrs = {
+                    onClick {
+                        btnCounter++
+                        btnText = "Pressed $btnCounter times"
+                        js("console.log('Pressed ' + btnCounter + ' times')")
+                    }
+
+                }) {
+                    Text(btnText)
+                }
             }
         }
     }
@@ -62,6 +82,7 @@ fun Navigation() {
  */
 @Composable
 fun NavItem(name: String, url: String) {
+
     Div(attrs = {
         classes(WtCols.wtColInline)
     }) {

@@ -35,6 +35,7 @@ fun main() {
             Header()
             Navigation()
             MainContentLayout {
+
 //                Intro()
             }
 //            PageFooter()
