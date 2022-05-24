@@ -17,7 +17,7 @@ jobs:
       - name: Checkout the Main branch
         uses: actions/checkout@v2
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Build the project
         uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-15
