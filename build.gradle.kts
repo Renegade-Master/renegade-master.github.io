@@ -36,6 +36,7 @@ kotlin {
             dependencies {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
+                // implementation(npm("properties", "1.2.1"))
             }
         }
 
