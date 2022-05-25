@@ -49,3 +49,9 @@ kotlin {
         }
     }
 }
+
+// BUG [2022/05/25]: Workaround to fix Gradle 7 insisting that there is a file
+//  duplication error for everything in the resources folder.
+tasks.named<Copy>("jsProcessResources") {
+    duplicatesStrategy = DuplicatesStrategy.WARN
+}
