@@ -14,6 +14,13 @@
  *    limitations under the License.
  */
 
-// @JsModule("properties")
-// @JsNonModule
-// external fun <T> parse(path: String): Map<String, String>
+@JsModule("./messageResource.js")
+@JsNonModule
+
+external fun <T> init(resourcesPath: String)
+
+external fun <T> load(fileName: String, callBackFunction: (input: String) -> Unit, locale: String)
+
+external fun <T> get(key: String, moduleName: String, locale: String)
+
+external fun <T> setCurrentLocale(locale: String)
