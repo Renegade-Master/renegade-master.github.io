@@ -16,12 +16,14 @@
 
 package com.renegademaster.utils
 
+import com.renegademaster.utils.PropertiesReader
+
 /**
  *  Manages access to the Resources.
  */
 object ResourceHandler {
     val locale = "en"
-    val properties: Map<String, String> = chooseProperties(locale)
+    val properties: Map<String, String> = loadProperties(locale)
 
     /**
      *  Retrieves a String from a resources file by the given ID.
@@ -34,8 +36,8 @@ object ResourceHandler {
         return properties[id] ?: "NOT_FOUND"
     }
 
-    private fun chooseProperties(locale: String): Map<String, String> {
-        //var propertiesReader = js("require('properties-reader');")
+    private fun loadProperties(locale: String): Map<String, String> {
+        var propertiesReader: PropertiesReader = PropertiesReader()
 
         val propertyFile: Map<String, String> = when (locale) {
             "de" -> mapOf(
