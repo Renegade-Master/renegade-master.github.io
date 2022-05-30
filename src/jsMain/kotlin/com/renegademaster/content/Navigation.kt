@@ -64,6 +64,7 @@ fun Navigation() {
                         btnCounter++
                         btnText = "Pressed $btnCounter times"
                         js("console.log('Pressed ' + btnCounter + ' times')")
+                        console.log("Pressed [$btnCounter] times")
                     }
 
                 }) {

@@ -1,13 +1,10 @@
-### Project Specific Additions ###
+### Custom Exceptions ###
+.idea/discord.xml
 
-# KotlinJS
-kotlin-js-store/
+# Created by https://www.toptal.com/developers/gitignore/api/intellij+iml,kotlin,node,gradle
+# Edit at https://www.toptal.com/developers/gitignore?templates=intellij+iml,kotlin,node,gradle
 
-
-# Created by https://www.toptal.com/developers/gitignore/api/intellij+all,kotlin,node,gradle
-# Edit at https://www.toptal.com/developers/gitignore?templates=intellij+all,kotlin,node,gradle
-
-### Intellij+all ###
+### Intellij+iml ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
@@ -86,21 +83,13 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-### Intellij+all Patch ###
-# Ignores the whole .idea folder and all .iml files
-# See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
-
-.idea/*
-
+### Intellij+iml Patch ###
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
 *.iml
 modules.xml
 .idea/misc.xml
 *.ipr
-
-# Sonarlint plugin
-.idea/sonarlint
 
 ### Kotlin ###
 # Compiled class file
@@ -269,7 +258,8 @@ dist
 
 ### Gradle ###
 .gradle
-build/
+**/build/
+!src/**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -277,14 +267,16 @@ gradle-app.setting
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 
+# Avoid ignore Gradle wrappper properties
+!gradle-wrapper.properties
+
 # Cache of project
 .gradletasknamecache
 
-# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
+# Eclipse Gradle plugin generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
 
-### Gradle Patch ###
-**/build/
-
-# End of https://www.toptal.com/developers/gitignore/api/intellij+all,kotlin,node,gradle
-n
+# End of https://www.toptal.com/developers/gitignore/api/intellij+iml,kotlin,node,gradle

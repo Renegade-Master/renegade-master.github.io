@@ -14,13 +14,18 @@
  *    limitations under the License.
  */
 
+package com.renegademaster.utils
+
 @JsModule("./messageResource.js")
 @JsNonModule
 
-external fun <T> init(resourcesPath: String)
+external object PropertiesReader {
+    fun init(config: Map<String, Any>)
 
-external fun <T> load(fileName: String, callBackFunction: (input: String) -> Unit, locale: String)
+    fun setCurrentLocale(locale: String)
 
-external fun <T> get(key: String, moduleName: String, locale: String)
+    fun load(fileName: String, callBackFunction: (newValue: String) -> Unit, locale: String)
+    fun load(fileNames: List<String>, callBackFunction: (newValue: String) -> Unit, locale: String)
 
-external fun <T> setCurrentLocale(locale: String)
+    fun get(key: String, moduleName: String, locale: String, defaultValue: String): String
+}

@@ -16,8 +16,6 @@
 
 package com.renegademaster.utils
 
-import com.renegademaster.utils.PropertiesReader
-
 /**
  *  Manages access to the Resources.
  */
@@ -37,7 +35,17 @@ object ResourceHandler {
     }
 
     private fun loadProperties(locale: String): Map<String, String> {
-        var propertiesReader: PropertiesReader = PropertiesReader()
+        val propertiesReader: PropertiesReader = PropertiesReader
+
+        propertiesReader.init(
+            mapOf(
+                "filePath" to "",
+                "fileExtension" to ".properties",
+                "defaultLocale" to locale
+            )
+        )
+
+        propertiesReader.load("strings", ::testCallBack, locale)
 
         val propertyFile: Map<String, String> = when (locale) {
             "de" -> mapOf(
@@ -48,7 +56,6 @@ object ResourceHandler {
             )
             "test" -> {
                 mapOf("hello" to "Hello Test", "goodbye" to "Goodbye Test")
-                //propertiesReader("/path/to/properties.file") as Map<String, String>
             }
             else -> mapOf(
                 "hello" to "Hello World", "goodbye" to "Goodbye World"
@@ -56,5 +63,10 @@ object ResourceHandler {
         }
 
         return propertyFile
+    }
+
+    private fun testCallBack(newValue: String) {
+        console.log("This is a test print statement")
+        console.log("New value is: $newValue")
     }
 }
