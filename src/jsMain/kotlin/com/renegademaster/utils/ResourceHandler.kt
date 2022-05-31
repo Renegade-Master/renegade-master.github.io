@@ -36,16 +36,24 @@ object ResourceHandler {
 
     private fun loadProperties(locale: String): Map<String, String> {
         val propertiesReader: PropertiesReader = PropertiesReader
-
-        propertiesReader.init(
-            mapOf(
-                "filePath" to "",
-                "fileExtension" to ".properties",
-                "defaultLocale" to locale
-            )
+        val readerConfig: JSON = JSON.parse(
+            """
+            {
+                "filePath": "strings/",
+                "fileExtension": ".properties",
+                "defaultLocale": "$locale",
+                "debugMode": "true"
+            }
+            """.trimIndent()
         )
 
+        propertiesReader.init(readerConfig)
+
         propertiesReader.load("strings", ::testCallBack, locale)
+
+        val justReadValue = propertiesReader.get("navigation.destination.about", "strings")
+
+        console.log("Just read value: $justReadValue")
 
         val propertyFile: Map<String, String> = when (locale) {
             "de" -> mapOf(

@@ -36,6 +36,8 @@ kotlin {
             dependencies {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
+                implementation(npm("@messageformat/core", "3.0.1"))
+                implementation(npm("@messageformat/loader", "1.0.0"))
             }
         }
 
@@ -45,6 +47,8 @@ kotlin {
 
             dependencies {
                 implementation(kotlin("test-js"))
+                implementation(npm("@messageformat/core", "3.0.1"))
+                implementation(npm("@messageformat/loader", "1.0.0"))
             }
         }
     }
