@@ -14,15 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the Main branch
+      - name: Checkout PR \#${{ github.event.pull_request.number }}
         uses: actions/checkout@v2
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Build the project
+        uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-15
+        with:
+          args: clean build
+
+      - name: Build the project
+        uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-15
+        with:
+          args: clean build
 
       - name: Compile the website into static files
         uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-15
         with:
-          args: clean build jsBrowserDistribution
+          args: jsBrowserDistribution
 
       - name: Upload generated pages
         if: ${{ success() }}

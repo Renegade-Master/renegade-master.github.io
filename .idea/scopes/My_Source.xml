@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="My Source" pattern="file[renegademaster-website]:.github//*||file[renegademaster-website.jsMain]:kotlin/com//*||file[renegademaster-website.jsMain]:resources//*" />
+</component>

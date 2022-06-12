@@ -1,8 +1,8 @@
 import org.jetbrains.compose.compose
 
 plugins {
-    kotlin("multiplatform") version "1.6.21"
-    id("org.jetbrains.compose") version "1.1.1"
+    kotlin("multiplatform")
+    id("org.jetbrains.compose")
 }
 
 group = "com.renegademaster"
@@ -27,17 +27,35 @@ kotlin {
         }
         binaries.executable()
     }
+
     sourceSets {
         val jsMain by getting {
+            kotlin.srcDir("src/jsMain/kotlin")
+            resources.srcDir("src/jsMain/resources")
+
             dependencies {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
+                implementation(npm("@messageformat/core", "3.0.1"))
+                implementation(npm("messageformat-properties-loader", "0.4.0"))
             }
         }
+
         val jsTest by getting {
+            kotlin.srcDir("src/jsTest/kotlin")
+            resources.srcDir("src/jsTest/resources")
+
             dependencies {
                 implementation(kotlin("test-js"))
+                implementation(npm("@messageformat/core", "3.0.1"))
+                implementation(npm("messageformat-properties-loader", "0.4.0"))
             }
         }
     }
+}
+
+// BUG [2022/05/25]: Workaround to fix Gradle 7 insisting that there is a file
+//  duplication error for everything in the resources folder.
+tasks.named<Copy>("jsProcessResources") {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }

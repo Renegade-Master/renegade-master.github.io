@@ -14,31 +14,22 @@
  *    limitations under the License.
  */
 
-package com.renegademaster
+package com.renegademaster.utils
 
-import com.renegademaster.content.Header
-import com.renegademaster.content.Navigation
-import org.jetbrains.components.Layout
-import org.jetbrains.components.MainContentLayout
-import org.jetbrains.compose.web.css.Style
-import org.jetbrains.compose.web.renderComposable
-import org.jetbrains.style.AppStylesheet
+@JsModule("messageformat-runtime/messages")
+@JsNonModule
+external object PropertiesReader2 {
+    /**
+     *
+     */
+    fun PropertiesReader2(target: Any): PropertiesReader2
 
-/**
- * Main entry point for the application.
- */
-fun main() {
-    renderComposable(rootElementId = "root") {
-        Style(AppStylesheet)
+    fun get(path: Array<String>, config: JSON): String
 
-        Layout {
-            Header()
-            Navigation()
-            MainContentLayout {
-
-//                Intro()
-            }
-//            PageFooter()
-        }
-    }
+    fun get(path: Array<String>): String
 }
+
+
+@JsModule("./app_config.properties")
+@JsNonModule
+external object app_config
