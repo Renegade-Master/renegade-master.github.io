@@ -16,11 +16,15 @@
 
 package com.renegademaster.utils
 
+import com.renegademaster.utils.PropertiesReader2.PropertiesReader2
+
 /**
  *  Manages access to the Resources.
  */
 object ResourceHandler {
-    val locale = "en"
+    val extension: String = ".properties"
+    val debugMode: Boolean = true
+    val locale: String = getConfigValue2("default.locale")
     val properties: Map<String, String> = loadProperties(locale)
 
     /**
@@ -34,15 +38,46 @@ object ResourceHandler {
         return properties[id] ?: "NOT_FOUND"
     }
 
+    private fun getConfigValue2(key: String): String {
+        val propertiesReader: PropertiesReader2 = PropertiesReader2(app_config)
+
+        propertiesReader.get(arrayOf("default", "locale"))
+
+        return "NOT_IMPLEMENTED"
+    }
+
+    private fun getConfigValue(key: String): String {
+        val propertiesReader: PropertiesReader = PropertiesReader
+        val locale: String = "config"
+        val readerConfig: JSON = JSON.parse(
+            """
+            {
+                "filePath": "./",
+                "fileExtension": "$extension",
+                "defaultLocale": "$locale",
+                "debugMode": "$debugMode"
+            }
+            """.trimIndent()
+        )
+
+        propertiesReader.init(readerConfig)
+
+        propertiesReader.load("app_config")
+
+        val justReadValue = propertiesReader.get(key, "app_config", locale, "VALUE_NOT_FOUND")
+
+        return justReadValue
+    }
+
     private fun loadProperties(locale: String): Map<String, String> {
         val propertiesReader: PropertiesReader = PropertiesReader
         val readerConfig: JSON = JSON.parse(
             """
             {
-                "filePath": "strings/",
-                "fileExtension": ".properties",
+                "filePath": "./strings/",
+                "fileExtension": "$extension",
                 "defaultLocale": "$locale",
-                "debugMode": "true"
+                "debugMode": "$debugMode"
             }
             """.trimIndent()
         )
@@ -51,7 +86,7 @@ object ResourceHandler {
 
         propertiesReader.load("strings", ::testCallBack, locale)
 
-        val justReadValue = propertiesReader.get("navigation.destination.about", "strings")
+        val justReadValue = propertiesReader.get("navigation.destination.about", "strings", locale, "VALUE_NOT_FOUND")
 
         console.log("Just read value: $justReadValue")
 

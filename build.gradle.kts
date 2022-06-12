@@ -37,7 +37,7 @@ kotlin {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
                 implementation(npm("@messageformat/core", "3.0.1"))
-                implementation(npm("@messageformat/loader", "1.0.0"))
+                implementation(npm("messageformat-properties-loader", "0.4.0"))
             }
         }
 
@@ -48,7 +48,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-js"))
                 implementation(npm("@messageformat/core", "3.0.1"))
-                implementation(npm("@messageformat/loader", "1.0.0"))
+                implementation(npm("messageformat-properties-loader", "0.4.0"))
             }
         }
     }
@@ -57,5 +57,5 @@ kotlin {
 // BUG [2022/05/25]: Workaround to fix Gradle 7 insisting that there is a file
 //  duplication error for everything in the resources folder.
 tasks.named<Copy>("jsProcessResources") {
-    duplicatesStrategy = DuplicatesStrategy.WARN
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
