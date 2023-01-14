@@ -17,6 +17,7 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
+import com.renegademaster.Constants.Links.renegadeMasterWebsite
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.dom.A
@@ -53,7 +54,7 @@ private fun Logo() {
     }) {
         A(attrs = {
             target(ATarget.Blank)
-        }, href = "https://github.com/Renegade-Master/") {
+        }, href = renegadeMasterWebsite) {
             Div(attrs = {
                 classes("renegademaster-logo", "_logo-renegademaster", "_size-3")
             }) {}
