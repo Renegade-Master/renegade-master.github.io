@@ -17,32 +17,31 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.renegademaster.Constants.LinkBuilders.personalVercelAppApi
+import com.renegademaster.Constants.Strings.username
 import com.renegademaster.HighlightJs
 import com.renegademaster.components.ContainerInSection
-import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.backgroundColor
 import org.jetbrains.compose.web.css.borderRadius
 import org.jetbrains.compose.web.css.em
-import org.jetbrains.compose.web.css.fontSize
 import org.jetbrains.compose.web.css.height
 import org.jetbrains.compose.web.css.justifyContent
 import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.css.maxHeight
 import org.jetbrains.compose.web.css.overflow
 import org.jetbrains.compose.web.css.padding
-import org.jetbrains.compose.web.css.pt
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.rgba
-import org.jetbrains.compose.web.dom.Code
+import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.H3
-import org.jetbrains.compose.web.dom.Pre
+import org.jetbrains.compose.web.dom.Img
+import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.style.WtCols
 import org.jetbrains.style.WtOffsets
@@ -57,16 +56,31 @@ private fun HTMLElement.setHighlightedCode(code: String) {
 
 private val projectZomboidProject = ProjectData(
     title = "Project Zomboid Dedicated Server",
+    description = """
+        A simple Container Image for running a Project Zomboid Dedicated Server. Contains RCON for remote Server 
+        Administration.
+    """.trimIndent(),
+    repo = "zomboid-dedicated-server",
     link = "https://github.com/Renegade-Master/zomboid-dedicated-server"
 )
 
 private val steamCmdMinimalProject = ProjectData(
     title = "Minimum SteamCMD Binary Base Image",
+    description = """
+        A Container Image containing the minimum runtime requirements for a SteamCMD binary. Intended to be used as a 
+        base image for building other images with.
+    """.trimIndent(),
+    repo = "steamcmd-minimal",
     link = "https://github.com/Renegade-Master/steamcmd-minimal"
 )
 
 private val asusWrtGoClient = ProjectData(
     title = "Go Client for ASUS WRT Routers",
+    description = """
+        A HTTP/S Client written in Golang for interacting with the undocumented ASUS WRT API. Using this package it is 
+        possible to monitor and administrate Asus Routers running the AsusWRT firmware.
+    """.trimIndent(),
+    repo = "asuswrt-api",
     link = "https://github.com/Renegade-Master/asuswrt-api"
 )
 
@@ -105,17 +119,17 @@ fun ProjectSamples() {
             }
         }
 
-        ProjectSample(title = currentProject.title, link = currentProject.link)
+        ProjectSample(currentProject)
     }
 }
 
 
 @Composable
-private fun ProjectSample(title: String, link: String) {
+private fun ProjectSample(project: ProjectData) {
     H3({
         classes(WtTexts.wtH3, WtOffsets.wtTopOffset48)
     }) {
-        Text(title)
+        Text(project.title)
     }
 
     Div({
@@ -126,37 +140,38 @@ private fun ProjectSample(title: String, link: String) {
             padding(12.px, 16.px)
         }
     }) {
-        ProjectSampleCard(link = link)
+        ProjectSampleCard(project)
     }
 }
 
 @Composable
-fun ProjectSampleCard(link: String, language: String = "kotlin") {
-    Pre({
+private fun ProjectSampleCard(project: ProjectData) {
+    Div({
         style {
             maxHeight(25.em)
             overflow("auto")
             height(auto)
         }
     }) {
-        Code({
-            classes("language-$language", "hljs")
-            style {
-                property("font-family", "'JetBrains Mono', monospace")
-                property("tab-size", 4)
-                fontSize(10.pt)
-                backgroundColor(Color("transparent"))
-            }
+        A(
+            href = project.link
+        ) {
+            Img(
+                src = "${personalVercelAppApi}/pin/?username=${username}&repo=${project.repo}"
+            )
+        }
+
+        P({
+            classes(WtTexts.wtText1, WtOffsets.wtTopOffset24)
         }) {
-            DisposableEffect(link) {
-                scopeElement.setHighlightedCode(link)
-                onDispose { }
-            }
+            Text(project.description)
         }
     }
 }
 
 private data class ProjectData(
     val title: String,
-    val link: String
+    val description: String = "",
+    val repo: String,
+    val link: String,
 )

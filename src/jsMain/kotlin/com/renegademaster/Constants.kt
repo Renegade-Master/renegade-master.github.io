@@ -21,12 +21,17 @@ package com.renegademaster
  */
 object Constants {
 
-    /**
-     * URL Strings
-     */
+    object Strings {
+        val username = "Renegade-Master"
+    }
+
     object Links {
         val renegadeMasterWebsite = "https://renegade-master.com/"
         val linkedInUrl = "https://www.linkedin.com/in/ciaran-bent/"
         val githubUrl = "https://github.com/Renegade-Master"
+    }
+
+    object LinkBuilders {
+        val personalVercelAppApi = "https://renegade-readme-stats.vercel.app/api/"
     }
 }
