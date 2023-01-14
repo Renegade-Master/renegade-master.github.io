@@ -1,34 +1,7 @@
 package org.jetbrains.style
 
-import org.jetbrains.compose.web.css.CSSColorValue
-import org.jetbrains.compose.web.css.CSSUnitValue
-import org.jetbrains.compose.web.css.Color
-import org.jetbrains.compose.web.css.Position
-import org.jetbrains.compose.web.css.StylePropertyNumber
-import org.jetbrains.compose.web.css.StyleSheet
-import org.jetbrains.compose.web.css.backgroundColor
-import org.jetbrains.compose.web.css.borderRadius
-import org.jetbrains.compose.web.css.boxSizing
-import org.jetbrains.compose.web.css.color
-import org.jetbrains.compose.web.css.fontSize
-import org.jetbrains.compose.web.css.fontWeight
-import org.jetbrains.compose.web.css.letterSpacing
-import org.jetbrains.compose.web.css.lineHeight
-import org.jetbrains.compose.web.css.margin
-import org.jetbrains.compose.web.css.marginLeft
-import org.jetbrains.compose.web.css.marginRight
-import org.jetbrains.compose.web.css.maxWidth
-import org.jetbrains.compose.web.css.media
-import org.jetbrains.compose.web.css.mediaMaxWidth
-import org.jetbrains.compose.web.css.padding
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.position
-import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.rgba
-import org.jetbrains.compose.web.css.top
-import org.jetbrains.compose.web.css.unaryMinus
-import org.jetbrains.compose.web.css.value
-import org.jetbrains.compose.web.css.variable
+import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.selectors.CSSSelector
 
 object AppCSSVariables {
     val wtColorGreyLight by variable<CSSColorValue>()
