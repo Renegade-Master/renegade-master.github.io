@@ -10,23 +10,32 @@ on:
 
 jobs:
   build-and-compile-pages:
-    name: Build and Compile Pages to verify Pull Request
+    name: "Build and Compile Pages to verify Pull Request"
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout the Main branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 19
+          distribution: zulu
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: wrapper
 
       - name: Compile the website into static files
-        uses: OrangeLabs-moe/gradle-actions@v5.0-openjdk-15
-        with:
-          args: clean build jsBrowserDistribution
+        run: ./gradlew clean build jsBrowserDistribution
 
       - name: Upload generated pages
         if: ${{ success() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: website-files
           path: |
