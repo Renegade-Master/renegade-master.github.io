@@ -22,4 +22,4 @@ compiled web files are stored on the
 
 Changes to the code in this `main` branch are automatically pushed to the `gh-pages` branch using GitHub Actions.
 
-The website can be viewed at [`renegade-master.github.io`](https://renegade-master.github.io).
+The website can be viewed at [`renegade-master.com`](https://renegade-master.com) or [`renegade-master.github.io`](https://renegade-master.github.io).

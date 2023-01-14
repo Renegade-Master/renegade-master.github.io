@@ -17,6 +17,8 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
+import com.renegademaster.Constants.Links.githubUrl
+import com.renegademaster.Constants.Links.linkedInUrl
 import com.renegademaster.components.ContainerInSection
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
@@ -91,7 +93,7 @@ private fun IntroAbout() {
             }) {
                 Text("Renegade-Master is the working name for Software developed by ")
 
-                A(href = "https://developer.android.com/jetpack/compose", attrs = {
+                A(href = linkedInUrl, attrs = {
                     classes(WtTexts.wtLink)
                     target(ATarget.Blank)
                 }) {
@@ -104,7 +106,7 @@ private fun IntroAbout() {
                     classes(WtTexts.wtButton, WtOffsets.wtTopOffset24)
                     target(ATarget.Blank)
                 },
-                href = "https://github.com/jetbrains/compose-jb"
+                href = githubUrl
             ) {
                 Text("View my projects on GitHub")
             }
