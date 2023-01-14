@@ -1,14 +1,6 @@
 package org.jetbrains.style
 
-import org.jetbrains.compose.web.css.StyleSheet
-import org.jetbrains.compose.web.css.boxSizing
-import org.jetbrains.compose.web.css.maxWidth
-import org.jetbrains.compose.web.css.media
-import org.jetbrains.compose.web.css.mediaMaxWidth
-import org.jetbrains.compose.web.css.paddingLeft
-import org.jetbrains.compose.web.css.paddingRight
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.*
 
 object WtContainer : StyleSheet(AppStylesheet) {
     val wtContainer by style {

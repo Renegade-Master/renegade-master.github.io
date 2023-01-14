@@ -19,10 +19,11 @@ package com.renegademaster
 import com.renegademaster.components.Layout
 import com.renegademaster.components.MainContentLayout
 import com.renegademaster.content.Header
+import com.renegademaster.content.Intro
 import com.renegademaster.content.PageFooter
+import com.renegademaster.content.ProjectSamples
 import org.jetbrains.compose.web.css.Style
 import org.jetbrains.compose.web.renderComposable
-import org.jetbrains.content.Intro
 import org.jetbrains.style.AppStylesheet
 
 /**
@@ -36,6 +37,7 @@ fun main() {
             Header()
             MainContentLayout {
                 Intro()
+                ProjectSamples()
             }
             PageFooter()
         }

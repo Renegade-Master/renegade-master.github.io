@@ -17,6 +17,9 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
+import com.renegademaster.Constants.Links.githubUrl
+import com.renegademaster.Constants.Links.linkedInUrl
+import com.renegademaster.Constants.Links.renegadeMasterWebsite
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.FlexWrap
@@ -132,8 +135,8 @@ private data class SocialLink(
 
 private fun getSocialLinks(): List<SocialLink> {
     return listOf(
-        SocialLink("website", "https://renegade-master.com/", "Renegade-Master Website", "favicon_32x32.png"),
-        SocialLink("linkedin", "https://www.linkedin.com/in/ciaran-bent/", "Ciaran Bent on Linkedin", "ic_linkedin.svg"),
-        SocialLink("github", "https://github.com/Renegade-Master", "Renegade-Master on GitHub", "ic_github.svg"),
+        SocialLink("website", renegadeMasterWebsite, "Renegade-Master Website", "favicon_32x32.png"),
+        SocialLink("linkedin", linkedInUrl, "Ciaran Bent on Linkedin", "ic_linkedin.svg"),
+        SocialLink("github", githubUrl, "Renegade-Master on GitHub", "ic_github.svg"),
     )
 }

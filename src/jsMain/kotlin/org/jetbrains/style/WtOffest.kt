@@ -1,11 +1,6 @@
 package org.jetbrains.style
 
-import org.jetbrains.compose.web.css.StyleSheet
-import org.jetbrains.compose.web.css.marginTop
-import org.jetbrains.compose.web.css.media
-import org.jetbrains.compose.web.css.mediaMaxWidth
-import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.value
+import org.jetbrains.compose.web.css.*
 
 object WtOffsets : StyleSheet(AppStylesheet) {
     val wtTopOffset96 by style {

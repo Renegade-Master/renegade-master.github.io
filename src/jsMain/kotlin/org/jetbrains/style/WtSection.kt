@@ -1,13 +1,6 @@
 package org.jetbrains.style
 
-import org.jetbrains.compose.web.css.Color
-import org.jetbrains.compose.web.css.StyleSheet
-import org.jetbrains.compose.web.css.backgroundColor
-import org.jetbrains.compose.web.css.boxSizing
-import org.jetbrains.compose.web.css.paddingBottom
-import org.jetbrains.compose.web.css.paddingTop
-import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.value
+import org.jetbrains.compose.web.css.*
 
 object WtSections : StyleSheet(AppStylesheet) {
 
