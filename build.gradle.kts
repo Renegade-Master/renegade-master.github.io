@@ -39,7 +39,7 @@ kotlin {
                 implementation(compose.web.core)
                 implementation(compose.runtime)
 
-                implementation(npm("highlight.js", "10.7.2"))
+                implementation(npm("highlight.js", "11.7.0"))
             }
         }
 
