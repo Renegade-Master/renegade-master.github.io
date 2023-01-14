@@ -1,4 +1,20 @@
-package org.jetbrains.content
+/*
+ *    Copyright 2023 Renegade-Master [renegade@renegade-master.com]
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
+package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.attributes.InputType
@@ -27,6 +43,7 @@ import org.jetbrains.compose.web.dom.Input
 import org.jetbrains.compose.web.dom.Label
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.style.AppStylesheet
+
 
 private object SwitcherVariables {
     val labelWidth by variable<CSSpxValue>()
@@ -88,19 +105,19 @@ object SwitcherStylesheet : StyleSheet(AppStylesheet) {
 }
 
 @Composable
-fun CodeSampleSwitcher(count: Int, current: Int, onSelect: (Int) -> Unit) {
+fun ProjectSwitcher(count: Int, current: Int, onSelect: (Int) -> Unit) {
     Form(attrs = {
         classes(SwitcherStylesheet.boxed)
     }) {
         repeat(count) { ix ->
             Input(type = InputType.Radio, attrs = {
-                name("code-snippet")
-                value("snippet$ix")
-                id("snippet$ix")
+                name("project-card")
+                value("project$ix")
+                id("project$ix")
                 if (current == ix) checked(true)
                 onChange { onSelect(ix) }
             })
-            Label(forId = "snippet$ix") { Text("${ix + 1}") }
+            Label(forId = "project$ix") { Text("${ix + 1}") }
         }
     }
 }

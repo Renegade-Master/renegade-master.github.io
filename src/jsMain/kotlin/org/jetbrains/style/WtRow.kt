@@ -1,17 +1,6 @@
 package org.jetbrains.style
 
-import org.jetbrains.compose.web.css.AlignItems
-import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.FlexWrap
-import org.jetbrains.compose.web.css.StyleSheet
-import org.jetbrains.compose.web.css.alignItems
-import org.jetbrains.compose.web.css.boxSizing
-import org.jetbrains.compose.web.css.display
-import org.jetbrains.compose.web.css.flexWrap
-import org.jetbrains.compose.web.css.media
-import org.jetbrains.compose.web.css.mediaMaxWidth
-import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.value
+import org.jetbrains.compose.web.css.*
 
 object WtRows : StyleSheet(AppStylesheet) {
 
