@@ -22,7 +22,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.renegademaster.Constants.LinkBuilders.personalVercelAppApi
 import com.renegademaster.Constants.Strings.username
-import com.renegademaster.HighlightJs
 import com.renegademaster.components.ContainerInSection
 import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.backgroundColor
@@ -47,12 +46,6 @@ import org.jetbrains.style.WtCols
 import org.jetbrains.style.WtOffsets
 import org.jetbrains.style.WtRows
 import org.jetbrains.style.WtTexts
-import org.w3c.dom.HTMLElement
-
-private fun HTMLElement.setHighlightedCode(code: String) {
-    innerText = code
-    HighlightJs.highlightElement(this)
-}
 
 private val projectZomboidProject = ProjectData(
     title = "Project Zomboid Dedicated Server",

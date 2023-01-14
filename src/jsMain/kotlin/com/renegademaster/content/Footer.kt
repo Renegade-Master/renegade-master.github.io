@@ -81,6 +81,9 @@ fun PageFooter() {
 
                     Div({
                         classes(WtCols.wtColInline)
+                        style {
+
+                        }
                     }) {
                         getSocialLinks().forEach { SocialIconLink(it) }
                     }
@@ -130,13 +133,13 @@ private data class SocialLink(
     val id: String,
     val url: String,
     val title: String,
-    val iconSvg: String
+    val iconSvg: String,
 )
 
 private fun getSocialLinks(): List<SocialLink> {
     return listOf(
         SocialLink("website", renegadeMasterWebsite, "Renegade-Master Website", "favicon_32x32.png"),
-        SocialLink("linkedin", linkedInUrl, "Ciaran Bent on Linkedin", "ic_linkedin.svg"),
+        SocialLink("linkedin", linkedInUrl, "Ciaran Bent on LinkedIn", "ic_linkedin.svg"),
         SocialLink("github", githubUrl, "Renegade-Master on GitHub", "ic_github.svg"),
     )
 }
