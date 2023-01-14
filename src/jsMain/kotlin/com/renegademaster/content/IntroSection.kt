@@ -32,7 +32,7 @@ import org.jetbrains.style.WtCols
 import org.jetbrains.style.WtDisplay
 import org.jetbrains.style.WtOffsets
 import org.jetbrains.style.WtRows
-import org.jetbrains.style.WtTexts
+import com.renegademaster.style.WtTexts
 
 @Composable
 fun Intro() {

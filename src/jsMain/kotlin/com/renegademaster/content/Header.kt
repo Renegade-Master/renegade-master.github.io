@@ -29,7 +29,7 @@ import org.jetbrains.style.WtCols
 import org.jetbrains.style.WtContainer
 import org.jetbrains.style.WtRows
 import org.jetbrains.style.WtSections
-import org.jetbrains.style.WtTexts
+import com.renegademaster.style.WtTexts
 
 @Composable
 fun Header() {

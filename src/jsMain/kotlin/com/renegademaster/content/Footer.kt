@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import com.renegademaster.Constants.Links.githubUrl
 import com.renegademaster.Constants.Links.linkedInUrl
 import com.renegademaster.Constants.Links.renegadeMasterWebsite
+import com.renegademaster.style.WtTexts.wtSocialButtonItem
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.FlexWrap
@@ -122,7 +123,7 @@ private fun CopyrightInFooter() {
 @Composable
 private fun SocialIconLink(link: SocialLink) {
     A(attrs = {
-        classes(WtTexts.wtSocialButtonItem)
+        classes(wtSocialButtonItem)
         target(ATarget.Blank)
     }, href = link.url) {
         Img(src = link.iconSvg) {}
