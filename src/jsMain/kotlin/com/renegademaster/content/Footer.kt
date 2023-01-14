@@ -1,12 +1,22 @@
-package org.jetbrains.content
+/*
+ *    Copyright 2023 Renegade-Master [renegade@renegade-master.com]
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
+package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
-import org.jetbrains.style.WtCols
-import org.jetbrains.style.WtContainer
-import org.jetbrains.style.WtOffsets
-import org.jetbrains.style.WtRows
-import org.jetbrains.style.WtSections
-import org.jetbrains.style.WtTexts
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.FlexWrap
@@ -25,6 +35,12 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.style.WtCols
+import org.jetbrains.style.WtContainer
+import org.jetbrains.style.WtOffsets
+import org.jetbrains.style.WtRows
+import org.jetbrains.style.WtSections
+import org.jetbrains.style.WtTexts
 
 
 @Composable
@@ -56,7 +72,7 @@ fun PageFooter() {
                         P({
                             classes(WtTexts.wtText1, WtTexts.wtText1ThemeDark)
                         }) {
-                            Text("Follow us")
+                            Text("Follow me")
                         }
                     }
 
@@ -86,13 +102,13 @@ private fun CopyrightInFooter() {
         Span({
             classes(WtTexts.wtText3, WtTexts.wtTextPale)
         }) {
-            Text("Copyright © 2000-2021  JetBrains s.r.o.")
+            Text("Copyright © 2022-2023  Renegade-Master Inc.")
         }
 
         Span({
             classes(WtTexts.wtText3, WtTexts.wtTextPale)
         }) {
-            Text("Developed with drive and IntelliJ IDEA")
+            Text("Website based on Jetpack Compose for Web examples by JetBrains s.r.o")
         }
     }
 }
@@ -116,17 +132,8 @@ private data class SocialLink(
 
 private fun getSocialLinks(): List<SocialLink> {
     return listOf(
-        SocialLink("facebook", "https://www.facebook.com/JetBrains", "JetBrains on Facebook", "ic_fb.svg"),
-        SocialLink("twitter", "https://twitter.com/jetbrains", "JetBrains on Twitter", "ic_twitter.svg"),
-        SocialLink(
-            "linkedin",
-            "https://www.linkedin.com/company/jetbrains",
-            "JetBrains on Linkedin",
-            "ic_linkedin.svg"
-        ),
-        SocialLink("youtube", "https://www.youtube.com/user/JetBrainsTV", "JetBrains on YouTube", "ic_youtube.svg"),
-        SocialLink("instagram", "https://www.instagram.com/jetbrains/", "JetBrains on Instagram", "ic_insta.svg"),
-        SocialLink("blog", "https://blog.jetbrains.com/", "JetBrains blog", "ic_jb_blog.svg"),
-        SocialLink("rss", "https://blog.jetbrains.com/feed/", "JetBrains RSS Feed", "ic_feed.svg"),
+        SocialLink("website", "https://renegade-master.com/", "Renegade-Master Website", "favicon_32x32.png"),
+        SocialLink("linkedin", "https://www.linkedin.com/in/ciaran-bent/", "Ciaran Bent on Linkedin", "ic_linkedin.svg"),
+        SocialLink("github", "https://github.com/Renegade-Master", "Renegade-Master on GitHub", "ic_github.svg"),
     )
 }

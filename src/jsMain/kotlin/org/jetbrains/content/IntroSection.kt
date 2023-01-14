@@ -5,13 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import org.jetbrains.components.ContainerInSection
-import org.jetbrains.style.AppStylesheet
-import org.jetbrains.style.WtCols
-import org.jetbrains.style.WtDisplay
-import org.jetbrains.style.WtOffsets
-import org.jetbrains.style.WtRows
-import org.jetbrains.style.WtTexts
+import com.renegademaster.components.ContainerInSection
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.AlignItems
@@ -41,6 +35,12 @@ import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.style.AppStylesheet
+import org.jetbrains.style.WtCols
+import org.jetbrains.style.WtDisplay
+import org.jetbrains.style.WtOffsets
+import org.jetbrains.style.WtRows
+import org.jetbrains.style.WtTexts
 
 @Composable
 fun Intro() {
@@ -76,10 +76,6 @@ fun Intro() {
                         }
                     }) {
                         Text("Web")
-
-//                        Span(attrs = { classes(AppStylesheet.composeTitleTag) }) {
-//                            Text("Technology preview")
-//                        }
                     }
                 }
                 Div({
@@ -124,12 +120,12 @@ private fun IntroAboutComposeWeb() {
             P({
                 classes(WtTexts.wtText1, WtOffsets.wtTopOffset24)
             }) {
-                Text(
-                    "Compose for Web simplifies and accelerates UI development for web applications, " +
-                            "and aims to enable UI code sharing between web, desktop, and Android applications " +
-                            "in the future."
-                )
-            }
+            Text(
+                "Compose for Web simplifies and accelerates UI development for web applications, " +
+                        "and aims to enable UI code sharing between web, desktop, and Android applications " +
+                        "in the future."
+            )
+        }
 
             //ComposeWebStatusMessage()
 

@@ -1,10 +1,12 @@
 package org.jetbrains.content
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import org.jetbrains.components.ContainerInSection
+import com.renegademaster.components.ContainerInSection
+import com.renegademaster.HighlightJs
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.backgroundColor
@@ -34,7 +36,7 @@ import org.w3c.dom.HTMLElement
 
 private fun HTMLElement.setHighlightedCode(code: String) {
     innerText = code
-    //HighlightJs.highlightElement(this)
+    HighlightJs.highlightElement(this)
 }
 
 private val SimpleCounterSnippet = CodeSnippetData(
@@ -283,8 +285,9 @@ fun FormattedCodeSnippet(code: String, language: String = "kotlin") {
                 backgroundColor(Color("transparent"))
             }
         }) {
-            DomSideEffect(code) {
-                it.setHighlightedCode(code)
+            DisposableEffect(code) {
+                scopeElement.setHighlightedCode(code)
+                onDispose {  }
             }
         }
     }
