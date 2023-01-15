@@ -77,8 +77,20 @@ private val asusWrtGoClient = ProjectData(
     link = "https://github.com/Renegade-Master/asuswrt-api"
 )
 
+private val personalWebsite = ProjectData(
+    title = "This website",
+    description = """
+        A personal website created using the Kotlin Jetpack Compose library by JetBrains and Google. The source code is 
+        stored on GitHub with an Action to automatically upload new files to be hosted using GitHub Pages. Finally, the 
+        domain is registered using CloudFlare.
+    """.trimIndent(),
+    repo = "renegade-master.github.io",
+    link = "https://github.com/Renegade-Master/renegade-master.github.io"
+)
+
 private val allProjects = arrayOf(
     projectZomboidProject,
+    personalWebsite,
     asusWrtGoClient,
     steamCmdMinimalProject,
 )
