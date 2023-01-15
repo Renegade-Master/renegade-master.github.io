@@ -8,7 +8,7 @@
       "gradleVersion": "latest"
     },
     "ghcr.io/devcontainers-contrib/features/kotlin-sdkman:2": {
-      "version": "1.7",
+      "version": "latest",
       "jdkVersion": "19",
       "jdkDistro": "open"
     }
