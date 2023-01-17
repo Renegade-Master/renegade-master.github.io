@@ -29,6 +29,7 @@ object Constants {
         val renegadeMasterWebsite = "https://renegade-master.com/"
         val linkedInUrl = "https://www.linkedin.com/in/ciaran-bent/"
         val githubUrl = "https://github.com/Renegade-Master"
+        val mailTo = "mailto:renegade@renegade-master.com"
     }
 
     object LinkBuilders {
