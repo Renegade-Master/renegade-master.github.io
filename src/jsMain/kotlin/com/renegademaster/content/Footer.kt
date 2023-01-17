@@ -19,6 +19,7 @@ package com.renegademaster.content
 import androidx.compose.runtime.Composable
 import com.renegademaster.Constants.Links.githubUrl
 import com.renegademaster.Constants.Links.linkedInUrl
+import com.renegademaster.Constants.Links.mailTo
 import com.renegademaster.Constants.Links.renegadeMasterWebsite
 import com.renegademaster.style.WtTexts.wtSocialButtonItem
 import org.jetbrains.compose.web.attributes.ATarget
@@ -76,7 +77,7 @@ fun PageFooter() {
                         P({
                             classes(WtTexts.wtText1, WtTexts.wtText1ThemeDark)
                         }) {
-                            Text("Follow me")
+                            Text("Links")
                         }
                     }
 
@@ -142,5 +143,6 @@ private fun getSocialLinks(): List<SocialLink> {
         SocialLink("website", renegadeMasterWebsite, "Renegade-Master Website", "favicon_32x32.png"),
         SocialLink("linkedin", linkedInUrl, "Ciaran Bent on LinkedIn", "ic_linkedin.svg"),
         SocialLink("github", githubUrl, "Renegade-Master on GitHub", "ic_github.svg"),
+        SocialLink("email", mailTo, "Renegade-Master Secure Email", "ic_mail.svg"),
     )
 }
