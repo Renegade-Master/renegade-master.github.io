@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform") version "1.7.20"
-    id("org.jetbrains.compose") version "1.3.0"
+    id("org.jetbrains.compose") version "1.4.0"
 }
 
 group = "com.renegademaster"
