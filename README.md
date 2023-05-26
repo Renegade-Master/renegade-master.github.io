@@ -7,7 +7,7 @@ templates, and to help understand how Compose for Web is supposed to work.
 
 Examples that I learned from to create this website can be found under
 the [`examples` directory](https://github.com/JetBrains/compose-jb/tree/master/examples). All JetBrains files taken from
-their examples are held in their unmodified state under the [`org.jetbrains`](./src/jsMain/kotlin/org/jetbrains)
+their examples are held in their unmodified state under the [`org.jetbrains`](./src/jsMain/kotlin/org/jetbrains/)
 package.
 
 ## Description
