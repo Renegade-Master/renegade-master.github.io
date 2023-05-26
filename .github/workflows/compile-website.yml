@@ -29,6 +29,9 @@ jobs:
         with:
           gradle-version: wrapper
 
+      - name: Setup Firefox
+        uses: browser-actions/setup-firefox@v1
+
       - name: Compile the website into static files
         run: ./gradlew clean build jsBrowserDistribution
 
