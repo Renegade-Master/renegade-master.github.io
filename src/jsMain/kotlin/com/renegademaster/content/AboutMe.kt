@@ -34,7 +34,7 @@ import org.jetbrains.style.WtRows
 import org.jetbrains.style.WtTexts
 
 @Composable
-fun Intro() {
+fun AboutMe() {
     ContainerInSection {
         Div({
             classes(WtRows.wtRow, WtRows.wtRowSizeM, WtRows.wtRowSmAlignItemsCenter)
@@ -49,7 +49,7 @@ fun Intro() {
                 )
             }) {
                 H1(attrs = { classes(WtTexts.wtHero) }) {
-                    Text("Welcome!")
+                    Text("About Me Page!")
                 }
             }
 

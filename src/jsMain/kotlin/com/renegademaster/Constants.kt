@@ -21,15 +21,35 @@ package com.renegademaster
  */
 object Constants {
 
+    enum class Page {
+        LANDING,
+        ABOUT,
+        PROJECTS
+    }
+
     object Strings {
         val username = "Renegade-Master"
     }
 
+    /**
+     * Structure for holding information to display links to external sites
+     */
+    data class Link(
+        val id: String,
+        val url: String,
+        val title: String,
+        val icon: String,
+    )
+
     object Links {
-        val renegadeMasterWebsite = "https://renegade-master.com/"
-        val linkedInUrl = "https://www.linkedin.com/in/ciaran-bent/"
-        val githubUrl = "https://github.com/Renegade-Master"
-        val mailTo = "mailto:renegade@renegade-master.com"
+        val renegadeMasterCom: Link =
+            Link("website", "https://renegade-master.com/", "Renegade-Master Website", "favicon_32x32.png")
+        val renegadeMasterLinkedIn: Link =
+            Link("linkedin", "https://www.linkedin.com/in/ciaran-bent/", "Ciaran Bent on LinkedIn", "ic_linkedin.svg")
+        val renegadeMasterGithub: Link =
+            Link("github", "https://github.com/Renegade-Master", "Renegade-Master on GitHub", "ic_github.svg")
+        val renegadeMasterEmail: Link =
+            Link("email", "mailto:renegade@renegade-master.com", "Renegade-Master Secure Email", "ic_mail.svg")
     }
 
     object LinkBuilders {

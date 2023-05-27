@@ -17,10 +17,7 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
-import com.renegademaster.Constants.Links.githubUrl
-import com.renegademaster.Constants.Links.linkedInUrl
-import com.renegademaster.Constants.Links.mailTo
-import com.renegademaster.Constants.Links.renegadeMasterWebsite
+import com.renegademaster.Constants
 import com.renegademaster.style.WtTexts.wtSocialButtonItem
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
@@ -122,27 +119,20 @@ private fun CopyrightInFooter() {
 }
 
 @Composable
-private fun SocialIconLink(link: SocialLink) {
+private fun SocialIconLink(link: Constants.Link) {
     A(attrs = {
         classes(wtSocialButtonItem)
         target(ATarget.Blank)
     }, href = link.url) {
-        Img(src = link.iconSvg) {}
+        Img(src = link.icon) {}
     }
 }
 
-private data class SocialLink(
-    val id: String,
-    val url: String,
-    val title: String,
-    val iconSvg: String,
-)
-
-private fun getSocialLinks(): List<SocialLink> {
+private fun getSocialLinks(): List<Constants.Link> {
     return listOf(
-        SocialLink("website", renegadeMasterWebsite, "Renegade-Master Website", "favicon_32x32.png"),
-        SocialLink("linkedin", linkedInUrl, "Ciaran Bent on LinkedIn", "ic_linkedin.svg"),
-        SocialLink("github", githubUrl, "Renegade-Master on GitHub", "ic_github.svg"),
-        SocialLink("email", mailTo, "Renegade-Master Secure Email", "ic_mail.svg"),
+        Constants.Links.renegadeMasterCom,
+        Constants.Links.renegadeMasterLinkedIn,
+        Constants.Links.renegadeMasterGithub,
+        Constants.Links.renegadeMasterEmail,
     )
 }
