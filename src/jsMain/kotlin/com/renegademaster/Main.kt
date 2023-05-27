@@ -16,11 +16,15 @@
 
 package com.renegademaster
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.renegademaster.components.Layout
 import com.renegademaster.components.MainContentLayout
+import com.renegademaster.content.AboutMe
 import com.renegademaster.content.Header
 import com.renegademaster.content.Intro
 import com.renegademaster.content.PageFooter
+import com.renegademaster.content.ProjectListing
 import com.renegademaster.content.ProjectSamples
 import org.jetbrains.compose.web.css.Style
 import org.jetbrains.compose.web.renderComposable
@@ -34,11 +38,27 @@ fun main() {
         Style(AppStylesheet)
 
         Layout {
-            Header()
+            val page = remember { mutableStateOf(Constants.Page.LANDING) }
+
+            Header(page)
+
             MainContentLayout {
-                Intro()
-                ProjectSamples()
+                when (page.value) {
+                    Constants.Page.LANDING -> {
+                        Intro()
+                        ProjectSamples()
+                    }
+
+                    Constants.Page.ABOUT -> {
+                        AboutMe()
+                    }
+
+                    Constants.Page.PROJECTS -> {
+                        ProjectListing()
+                    }
+                }
             }
+
             PageFooter()
         }
     }
