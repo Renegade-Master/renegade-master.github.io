@@ -20,8 +20,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import com.renegademaster.Constants
 import org.jetbrains.compose.web.attributes.ATarget
-import org.jetbrains.compose.web.attributes.ButtonType
-import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.FlexWrap
 import org.jetbrains.compose.web.css.JustifyContent

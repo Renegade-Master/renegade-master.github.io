@@ -16,10 +16,8 @@
 
 package com.renegademaster
 
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import com.renegademaster.components.Layout
 import com.renegademaster.components.MainContentLayout
 import com.renegademaster.content.AboutMe
