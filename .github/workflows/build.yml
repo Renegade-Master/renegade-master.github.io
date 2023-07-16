@@ -3,7 +3,7 @@ name: Build the Project
 on:
   pull_request:
     branches:
-      - main
+    - main
 
   # Allows running this workflow manually from the Actions tab
   workflow_dispatch:
@@ -14,32 +14,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the Main branch
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+    - name: Checkout the Main branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: 20
-          distribution: zulu
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: zulu
 
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: wrapper
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: wrapper
 
-      - name: Setup Firefox
-        uses: browser-actions/setup-firefox@v1
+    - name: Setup Firefox
+      uses: browser-actions/setup-firefox@v1
 
-      - name: Compile the website into static files
-        run: ./gradlew clean build jsBrowserDistribution
+    - name: Compile the website into static files
+      run: ./gradlew clean build jsBrowserDistribution
 
-      - name: Upload generated pages
-        if: ${{ success() }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: website-files
-          path: |
-            build/distributions/*
+    - name: Upload generated pages
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: website-files
+        path: |
+          build/distributions/*
