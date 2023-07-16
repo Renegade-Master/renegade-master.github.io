@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "gradle"
-    directory: "/"
-    schedule:
-      interval: "daily"
-      #day: sunday
+- package-ecosystem: "gradle"
+  directory: "/"
+  schedule:
+    interval: "daily"
+    #day: sunday
