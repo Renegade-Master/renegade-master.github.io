@@ -35,10 +35,10 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             dependencies {
-                implementation(compose.web.core)
+                implementation(compose.html.core)
                 implementation(compose.runtime)
 
-                implementation(npm("highlight.js", "11.7.0"))
+                implementation(npm("highlight.js", "11.8.0"))
             }
         }
 
