@@ -13,64 +13,64 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the Main branch
-        uses: actions/checkout@v3
-        with:
-          ref: main
+    - name: Checkout the Main branch
+      uses: actions/checkout@v3
+      with:
+        ref: main
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: 20
-          distribution: zulu
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: zulu
 
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: wrapper
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: wrapper
 
-      - name: Setup Firefox
-        uses: browser-actions/setup-firefox@v1
+    - name: Setup Firefox
+      uses: browser-actions/setup-firefox@v1
 
-      - name: Compile the website into static files
-        run: ./gradlew clean build jsBrowserDistribution
+    - name: Compile the website into static files
+      run: ./gradlew clean build jsBrowserDistribution
 
-      - name: Upload generated pages
-        if: ${{ success() }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: website-files
-          path: |
-            build/distributions/*
+    - name: Upload generated pages
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: website-files
+        path: |
+          build/distributions/*
 
   upload-compiled-pages:
     name: "Upload Compiled Website to GH-Pages Branch"
     needs:
-      - build-and-compile-pages
+    - build-and-compile-pages
 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the GH-Pages branch
-        uses: actions/checkout@v3
-        with:
-          ref: gh-pages
+    - name: Checkout the GH-Pages branch
+      uses: actions/checkout@v3
+      with:
+        ref: gh-pages
 
-      - name: Download generated pages
-        uses: actions/download-artifact@v3
-        with:
-          name: website-files
-          path: ./
+    - name: Download generated pages
+      uses: actions/download-artifact@v3
+      with:
+        name: website-files
+        path: ./
 
-      - name: Investigate
-        run: |
-          cat ./index.html
-          cat ./renegademaster-website.js
+    - name: Investigate
+      run: |
+        cat ./index.html
+        cat ./renegademaster-website.js
 
-      - name: Commit and Push
-        run: |
-          git config --global user.name 'Renegade-Master Action'
-          git config --global user.email 'renegade-master@users.noreply.github.com'
-          git add .
-          git commit -m "Update website files"
-          git push origin gh-pages
+    - name: Commit and Push
+      run: |
+        git config --global user.name 'Renegade-Master Action'
+        git config --global user.email 'renegade-master@users.noreply.github.com'
+        git add .
+        git commit -m "Update website files"
+        git push origin gh-pages
