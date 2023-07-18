@@ -2,14 +2,14 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
-      "version": "19",
+      "version": "17",
       "jdkDistro": "open",
       "installGradle": true,
       "gradleVersion": "latest"
     },
     "ghcr.io/devcontainers-contrib/features/kotlin-sdkman:2": {
       "version": "latest",
-      "jdkVersion": "19",
+      "jdkVersion": "17",
       "jdkDistro": "open"
     }
   }

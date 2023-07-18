@@ -60,12 +60,6 @@ fun Intro() {
             }
         }
     }
-
-    Div(attrs = {
-        classes(WtDisplay.wtDisplayNone, WtDisplay.wtDisplayMdBlock)
-    }) {
-        IntroAbout()
-    }
 }
 
 

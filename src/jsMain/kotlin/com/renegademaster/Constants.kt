@@ -21,12 +21,19 @@ package com.renegademaster
  */
 object Constants {
 
+    /**
+     * An enum to store references to webpages
+     */
     enum class Page {
         LANDING,
         ABOUT,
-        PROJECTS
+        PROJECTS,
+        TOOLS
     }
 
+    /**
+     * Strings stores general use string values for reuse within the website.
+     */
     object Strings {
         val username = "Renegade-Master"
     }
@@ -54,5 +61,6 @@ object Constants {
 
     object LinkBuilders {
         val personalVercelAppApi = "https://renegade-readme-stats.vercel.app/api/"
+        val exchangeRateApi = "https://www.ecb.int/stats/eurofxref/eurofxref-daily.xml"
     }
 }

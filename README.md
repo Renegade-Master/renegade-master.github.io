@@ -1,6 +1,6 @@
 # Renegade-Master Website
 
-# References
+## Reuse
 
 Makes use of the [JetBrains Official Compose Documentation](https://github.com/JetBrains/compose-jb/) for structural
 templates, and to help understand how Compose for Web is supposed to work.
@@ -25,3 +25,9 @@ Changes to the code in this `main` branch are automatically pushed to the `gh-pa
 
 The website can be viewed at [`renegade-master.com`](https://renegade-master.com)
 or [`renegade-master.github.io`](https://renegade-master.github.io).
+
+## References
+
+Blog Posts:
+
+- https://dev.to/kevinschildhorn/how-to-use-npm-modules-in-kotlinjs-discord-bot-series-part-1-51ni

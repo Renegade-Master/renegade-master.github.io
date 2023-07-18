@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import com.renegademaster.components.Layout
 import com.renegademaster.components.MainContentLayout
 import com.renegademaster.content.AboutMe
+import com.renegademaster.content.ConversionCalculator
 import com.renegademaster.content.Header
 import com.renegademaster.content.Intro
 import com.renegademaster.content.PageFooter
@@ -55,6 +56,10 @@ fun main() {
 
                     Constants.Page.PROJECTS -> {
                         ProjectListing()
+                    }
+
+                    Constants.Page.TOOLS -> {
+                        ConversionCalculator()
                     }
                 }
             }

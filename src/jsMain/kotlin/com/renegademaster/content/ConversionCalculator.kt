@@ -17,12 +17,9 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
-import com.renegademaster.Constants
+import com.renegademaster.Constants.LinkBuilders.exchangeRateApi
 import com.renegademaster.components.ContainerInSection
-import org.jetbrains.compose.web.attributes.ATarget
-import org.jetbrains.compose.web.attributes.target
-import org.jetbrains.compose.web.css.whiteSpace
-import org.jetbrains.compose.web.dom.A
+import com.renegademaster.external.axios
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
@@ -34,7 +31,7 @@ import org.jetbrains.style.WtRows
 import org.jetbrains.style.WtTexts
 
 @Composable
-fun ProjectListing() {
+fun ConversionCalculator() {
     ContainerInSection {
         Div({
             classes(WtRows.wtRow, WtRows.wtRowSizeM, WtRows.wtRowSmAlignItemsCenter)
@@ -49,22 +46,21 @@ fun ProjectListing() {
                 )
             }) {
                 H1(attrs = { classes(WtTexts.wtHero) }) {
-                    Text("Project Listing Page!")
+                    Text("Conversion Calculator Page!")
                 }
             }
 
             Div({
                 classes(WtDisplay.wtDisplayMdNone)
             }) {
-                IntroAbout()
+                Calculator()
             }
         }
     }
 }
 
-
 @Composable
-private fun IntroAbout() {
+private fun Calculator() {
     Div({
         classes(WtRows.wtRow, WtRows.wtRowSizeM)
     }) {
@@ -72,37 +68,26 @@ private fun IntroAbout() {
         Div({
             classes(WtCols.wtCol9, WtCols.wtColMd9, WtCols.wtColSm12)
         }) {
-            P({
-                classes(WtTexts.wtSubtitle2, WtOffsets.wtTopOffset24)
-                style {
-                    whiteSpace("nowrap")
-                }
-            }) {
-                Text("to the Renegade-Master landing page.")
+            P(attrs = { classes(WtTexts.wtText1) }) {
+                Text("This is a test")
             }
-
-            P({
-                classes(WtTexts.wtText1, WtOffsets.wtTopOffset24)
-            }) {
-                Text("Renegade-Master is the working name for Software developed by ")
-
-                A(href = Constants.Links.renegadeMasterLinkedIn.url, attrs = {
-                    classes(WtTexts.wtLink)
-                    target(ATarget.Blank)
-                }) {
-                    Text("Ciaran Bent")
-                }
-            }
-
-            A(
-                attrs = {
-                    classes(WtTexts.wtButton, WtOffsets.wtTopOffset24)
-                    target(ATarget.Blank)
-                },
-                href = Constants.Links.renegadeMasterGithub.url
-            ) {
-                Text("View my projects on GitHub")
-            }
+            Text(getApiRates())
         }
     }
+}
+
+private fun getApiRates(): String {
+    var response = ""
+
+    axios(exchangeRateApi)
+        .then { resp ->
+            console.log("Running then")
+            response = resp.toString()
+        }.catch { err ->
+            console.log("Error occurred: $err")
+        }.finally {
+            console.log("Finally")
+        }
+
+    return response
 }

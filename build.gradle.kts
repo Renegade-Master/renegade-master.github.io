@@ -34,11 +34,15 @@ kotlin {
 
     sourceSets {
         val jsMain by getting {
+            val versionHighlightJs: String by project
+            val versionAxios: String by project
+
             dependencies {
                 implementation(compose.html.core)
                 implementation(compose.runtime)
 
-                implementation(npm("highlight.js", "11.8.0"))
+                implementation(npm("highlight.js", versionHighlightJs))
+                implementation(npm("axios", versionAxios))
             }
         }
 

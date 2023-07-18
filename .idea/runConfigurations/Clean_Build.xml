@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Clean Build Run" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="Clean Build" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -12,7 +12,6 @@
         <list>
           <option value="clean" />
           <option value="build" />
-          <option value="jsBrowserRun" />
         </list>
       </option>
       <option name="vmOptions" />
