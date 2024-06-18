@@ -9,6 +9,10 @@
       "version": "latest",
       "jdkVersion": "19",
       "jdkDistro": "open"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "latest",
+      "nvmVersion": "19"
     }
   }
 }
