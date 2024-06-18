@@ -7,12 +7,12 @@
   "features": {
     "ghcr.io/devcontainers-contrib/features/kotlin-sdkman:2": {
       "version": "latest",
-      "jdkVersion": "19",
+      "jdkVersion": "21.0.2-open",
       "jdkDistro": "open"
     },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "latest",
-      "nvmVersion": "19"
+      "nvmVersion": "latest"
     }
   }
 }

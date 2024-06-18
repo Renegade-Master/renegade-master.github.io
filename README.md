@@ -25,3 +25,22 @@ Changes to the code in this `main` branch are automatically pushed to the `gh-pa
 
 The website can be viewed at [`renegade-master.com`](https://renegade-master.com)
 or [`renegade-master.github.io`](https://renegade-master.github.io).
+
+## Building
+
+### Updating
+
+#### DevContainer
+
+This section details how to update/modify the default DevContainer configuration.
+
+* [Reference](https://containers.dev/implementors/json_reference/)
+* [Schema](https://containers.dev/implementors/json_reference/#schema)
+
+#### Languages/Build Frameworks
+
+This section details how to update the dependencies of this project.
+
+| Dependency     | Link                                                                                                                            |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Kotlin Compose | [Compatibility and Versions](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html) |
