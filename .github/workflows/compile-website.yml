@@ -41,7 +41,7 @@ jobs:
       with:
         name: website-files
         path: |
-          build/distributions/*
+          build/dist/*
 
   upload-compiled-pages:
     name: "Upload Compiled Website to GH-Pages Branch"
