@@ -49,7 +49,7 @@ object Constants {
         val renegadeMasterGithub: Link =
             Link("github", "https://github.com/Renegade-Master", "Renegade-Master on GitHub", "ic_github.svg")
         val renegadeMasterEmail: Link =
-            Link("email", "mailto:renegade@renegade-master.com", "Renegade-Master Secure Email", "ic_mail.svg")
+            Link("email", "mailto:webmaster.portly274@passfwd.com", "Renegade-Master Secure Email", "ic_mail.svg")
     }
 
     object LinkBuilders {
