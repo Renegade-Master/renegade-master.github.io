@@ -43,4 +43,10 @@ This section details how to update the dependencies of this project.
 
 | Dependency     | Link                                                                                                                            |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Gradle         | [Compatibility](https://docs.gradle.org/current/userguide/compatibility.html#kotlin)                                            |
 | Kotlin Compose | [Compatibility and Versions](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html) |
+
+| Dependency                          | Gradle Link                                                                   |
+|-------------------------------------|-------------------------------------------------------------------------------|
+| org.jetbrains.compose               | [Link](https://plugins.gradle.org/plugin/org.jetbrains.compose)               |
+| org.jetbrains.kotlin.plugin.compose | [Link](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.compose) |

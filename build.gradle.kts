@@ -1,6 +1,7 @@
 plugins {
-    kotlin("multiplatform") version "1.8.20"
-    id("org.jetbrains.compose") version "1.4.1"
+    kotlin("multiplatform") version "2.0.0"
+    id("org.jetbrains.compose") version "1.6.11"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 group = "com.renegademaster"
@@ -13,8 +14,8 @@ repositories {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 kotlin {

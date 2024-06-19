@@ -2,6 +2,7 @@
 
 # KotlinJS
 kotlin-js-store/
+.kotlin/
 
 ## Exceptions ##
 !.idea/copyright
