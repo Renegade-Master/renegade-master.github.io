@@ -33,7 +33,6 @@ import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Footer
 import org.jetbrains.compose.web.dom.Img
-import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
@@ -43,6 +42,7 @@ import org.jetbrains.style.WtOffsets
 import org.jetbrains.style.WtRows
 import org.jetbrains.style.WtSections
 import org.jetbrains.style.WtTexts
+import kotlin.js.Date
 
 
 @Composable
@@ -67,17 +67,6 @@ fun PageFooter() {
                         flexWrap(FlexWrap.Wrap)
                     }
                 }) {
-
-                    Div({
-                        classes(WtCols.wtColInline)
-                    }) {
-                        P({
-                            classes(WtTexts.wtText1, WtTexts.wtText1ThemeDark)
-                        }) {
-                            Text("Links")
-                        }
-                    }
-
                     Div({
                         classes(WtCols.wtColInline)
                         style {
@@ -107,13 +96,21 @@ private fun CopyrightInFooter() {
         Span({
             classes(WtTexts.wtText3, WtTexts.wtTextPale)
         }) {
-            Text("Copyright © 2022-2023  Renegade-Master Inc.")
+            val currentYear = Date(Date.now()).getFullYear()
+            Text("Copyright © 2022-${currentYear}  Renegade-Master Inc.")
         }
 
         Span({
             classes(WtTexts.wtText3, WtTexts.wtTextPale)
         }) {
-            Text("Website based on Jetpack Compose for Web examples by JetBrains s.r.o")
+            Text("Website based on ")
+            A(href = "https://jb.gg/compose-web", attrs = {
+                classes(WtTexts.wtLink)
+                target(ATarget.Blank)
+            }) {
+                Text("Jetpack Compose for Web examples")
+            }
+            Text(" by JetBrains s.r.o")
         }
     }
 }
