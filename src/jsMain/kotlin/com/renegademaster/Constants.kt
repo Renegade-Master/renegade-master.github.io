@@ -16,6 +16,8 @@
 
 package com.renegademaster
 
+import androidx.compose.runtime.MutableState
+
 /**
  * Constant values to be used across the project.
  */
@@ -25,6 +27,28 @@ object Constants {
         LANDING,
         ABOUT,
         PROJECTS
+    }
+
+    enum class Theme {
+        LIGHT,
+        DARK;
+
+        /**
+         * Swap the Theme from Light to Dark, or Dark to Light
+         */
+        fun swap(theme: MutableState<Theme>): Theme {
+            return when (theme.value) {
+                LIGHT -> {
+                    println("Theme is now ${theme.value}")
+                    DARK
+                }
+
+                DARK -> {
+                    println("Theme is now ${theme.value}")
+                    LIGHT
+                }
+            }
+        }
     }
 
     object Strings {

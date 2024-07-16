@@ -28,10 +28,8 @@ import org.jetbrains.compose.web.css.justifyContent
 import org.jetbrains.compose.web.css.padding
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.A
-import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.H1
-import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.style.WtCols
@@ -41,24 +39,29 @@ import org.jetbrains.style.WtSections
 import org.jetbrains.style.WtTexts
 
 @Composable
-fun Header(page: MutableState<Constants.Page>) {
+fun header(page: MutableState<Constants.Page>, theme: MutableState<Constants.Theme>) {
+    val headerTheme = if (theme.value == Constants.Theme.LIGHT)
+        WtSections.wtSectionBgGrayDark
+    else WtSections.wtSectionBgGrayLight
+
     Section(attrs = {
-        classes(WtSections.wtSectionBgGrayDark)
+        classes(headerTheme)
     }) {
         Div({ classes(WtContainer.wtContainer) }) {
             Div({
                 classes(WtRows.wtRow, WtRows.wtRowSizeM)
             }) {
-                Logo()
-                Banner()
-                Navigation(page)
+                logo()
+                banner(theme)
+                navigation(page, theme)
+                theme(theme)
             }
         }
     }
 }
 
 @Composable
-private fun Logo() {
+private fun logo() {
     Div(attrs = {
         classes(WtCols.wtColInline)
     }) {
@@ -73,12 +76,16 @@ private fun Logo() {
 }
 
 @Composable
-private fun Banner() {
+private fun banner(theme: MutableState<Constants.Theme>) {
+    val headerTheme = if (theme.value == Constants.Theme.LIGHT)
+        WtTexts.wtText1ThemeLight
+    else WtTexts.wtText1ThemeDark
+
     Div(attrs = {
         classes(WtCols.wtColInline)
     }) {
         H1(attrs = {
-            classes(WtCols.wtColInline, WtTexts.wtHero, WtTexts.wtText1ThemeDark)
+            classes(WtCols.wtColInline, WtTexts.wtHero, headerTheme)
         }) {
             Text("Renegade Master")
         }
@@ -86,7 +93,7 @@ private fun Banner() {
 }
 
 @Composable
-private fun Navigation(page: MutableState<Constants.Page>) {
+private fun navigation(page: MutableState<Constants.Page>, theme: MutableState<Constants.Theme>) {
     Div(attrs = {
         classes(WtCols.wtColInline)
     }) {
@@ -104,27 +111,51 @@ private fun Navigation(page: MutableState<Constants.Page>) {
                         flexWrap(FlexWrap.Wrap)
                     }
                 }) {
-
                     Div({
-                        classes(WtCols.wtColInline)
+                        classes(WtCols.wtColInline, WtTexts.wtButton)
                     }) {
-                        P({
-                            classes(WtTexts.wtText1, WtTexts.wtText1ThemeDark)
-                        }) {
-                            Text("Links")
-                        }
-                    }
-
-                    Div({
-                        classes(WtCols.wtColInline)
-                        style {
-
-                        }
-                    }) {
-                        Button(attrs = {
-                            onClick { page.value = Constants.Page.values().random() }
+                        A(attrs = {
+                            classes(WtCols.wtColInline)
+                            target(ATarget.Blank)
+                            onClick { page.value = Constants.Page.entries.toTypedArray().random() }
                         }) {
                             Text("Change Page")
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun theme(theme: MutableState<Constants.Theme>) {
+    Div(attrs = {
+        classes(WtCols.wtColInline)
+    }) {
+        Section({
+            classes(WtSections.wtSectionBgGrayDark)
+            style {
+                padding(24.px, 0.px)
+            }
+        }) {
+            Div({ classes(WtContainer.wtContainer) }) {
+                Div({
+                    classes(WtRows.wtRow, WtRows.wtRowSizeM, WtRows.wtRowSmAlignItemsCenter)
+                    style {
+                        justifyContent(JustifyContent.Center)
+                        flexWrap(FlexWrap.Wrap)
+                    }
+                }) {
+                    Div({
+                        classes(WtCols.wtColInline, WtTexts.wtButton)
+                    }) {
+                        A(attrs = {
+                            classes(WtCols.wtColInline)
+                            target(ATarget.Blank)
+                            onClick { theme.value = theme.value.swap(theme) }
+                        }) {
+                            Text("Change Theme")
                         }
                     }
                 }

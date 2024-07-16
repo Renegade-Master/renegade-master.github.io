@@ -21,7 +21,7 @@ import androidx.compose.runtime.remember
 import com.renegademaster.components.Layout
 import com.renegademaster.components.MainContentLayout
 import com.renegademaster.content.AboutMe
-import com.renegademaster.content.Header
+import com.renegademaster.content.header
 import com.renegademaster.content.Intro
 import com.renegademaster.content.PageFooter
 import com.renegademaster.content.ProjectListing
@@ -39,8 +39,9 @@ fun main() {
 
         Layout {
             val page = remember { mutableStateOf(Constants.Page.LANDING) }
+            val theme = remember { mutableStateOf(Constants.Theme.LIGHT) }
 
-            Header(page)
+            header(page, theme)
 
             MainContentLayout {
                 when (page.value) {

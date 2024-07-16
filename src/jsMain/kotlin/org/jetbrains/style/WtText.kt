@@ -65,6 +65,10 @@ object WtTexts : StyleSheet(AppStylesheet) {
         color(rgb(15, 16, 17))
     }
 
+    val wtText1ThemeLight by style {
+        color(rgba(230, 237, 243, 0.6))
+    }
+
     val wtText1ThemeDark by style {
         color(rgba(255, 255, 255, 0.6))
     }
