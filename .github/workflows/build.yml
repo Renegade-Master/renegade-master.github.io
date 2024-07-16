@@ -42,4 +42,4 @@ jobs:
       with:
         name: website-files
         path: |
-          build/dist/*
+          build/dist/js/productionExecutable/*
