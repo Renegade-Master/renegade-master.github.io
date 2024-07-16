@@ -50,3 +50,15 @@ This section details how to update the dependencies of this project.
 |-------------------------------------|-------------------------------------------------------------------------------|
 | org.jetbrains.compose               | [Link](https://plugins.gradle.org/plugin/org.jetbrains.compose)               |
 | org.jetbrains.kotlin.plugin.compose | [Link](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.compose) |
+
+#### GitHub Actions
+
+This section details the GitHub Actions used.
+
+| GitHub Action     | Link                                                                                |
+|-------------------|-------------------------------------------------------------------------------------|
+| Checkout          | [setup-java/releases](https://github.com/actions/checkout/releases)                 |
+| Setup Java        | [setup-java/releases](https://github.com/actions/setup-java/releases)               |
+| Setup Gradle      | [setup-gradle/releases](https://github.com/gradle/actions/releases)                 |
+| Upload Artifact   | [upload-artifact/releases](https://github.com/actions/upload-artifact/releases)     |
+| Download Artifact | [download-artifact/releases](https://github.com/actions/download-artifact/releases) |
