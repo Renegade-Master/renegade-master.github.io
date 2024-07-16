@@ -17,6 +17,7 @@
 package com.renegademaster.content
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import com.renegademaster.Constants
 import com.renegademaster.components.ContainerInSection
 import org.jetbrains.compose.web.attributes.ATarget
@@ -31,10 +32,14 @@ import org.jetbrains.style.WtCols
 import org.jetbrains.style.WtDisplay
 import org.jetbrains.style.WtOffsets
 import org.jetbrains.style.WtRows
-import org.jetbrains.style.WtTexts
+import com.renegademaster.style.WtTexts
 
 @Composable
-fun Intro() {
+fun Intro(theme: MutableState<Constants.Theme>) {
+    val introHeroTextTheme = if (theme.value == Constants.Theme.LIGHT)
+        WtTexts.wtHeroLight
+    else WtTexts.wtHeroDark
+
     ContainerInSection {
         Div({
             classes(WtRows.wtRow, WtRows.wtRowSizeM, WtRows.wtRowSmAlignItemsCenter)
@@ -48,7 +53,7 @@ fun Intro() {
                     WtOffsets.wtTopOffsetSm12
                 )
             }) {
-                H1(attrs = { classes(WtTexts.wtHero) }) {
+                H1(attrs = { classes(introHeroTextTheme) }) {
                     Text("Welcome!")
                 }
             }

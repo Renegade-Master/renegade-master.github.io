@@ -41,8 +41,8 @@ import org.jetbrains.style.WtTexts
 @Composable
 fun header(page: MutableState<Constants.Page>, theme: MutableState<Constants.Theme>) {
     val headerTheme = if (theme.value == Constants.Theme.LIGHT)
-        WtSections.wtSectionBgGrayDark
-    else WtSections.wtSectionBgGrayLight
+        WtSections.wtSectionBgGrayLight
+    else WtSections.wtSectionBgGrayDark
 
     Section(attrs = {
         classes(headerTheme)
@@ -77,7 +77,7 @@ private fun logo() {
 
 @Composable
 private fun banner(theme: MutableState<Constants.Theme>) {
-    val headerTheme = if (theme.value == Constants.Theme.LIGHT)
+    val bannerTextTheme = if (theme.value == Constants.Theme.LIGHT)
         WtTexts.wtText1ThemeLight
     else WtTexts.wtText1ThemeDark
 
@@ -85,7 +85,7 @@ private fun banner(theme: MutableState<Constants.Theme>) {
         classes(WtCols.wtColInline)
     }) {
         H1(attrs = {
-            classes(WtCols.wtColInline, WtTexts.wtHero, headerTheme)
+            classes(WtCols.wtColInline, WtTexts.wtHero, bannerTextTheme)
         }) {
             Text("Renegade Master")
         }
@@ -94,11 +94,15 @@ private fun banner(theme: MutableState<Constants.Theme>) {
 
 @Composable
 private fun navigation(page: MutableState<Constants.Page>, theme: MutableState<Constants.Theme>) {
+    val navigationTheme = if (theme.value == Constants.Theme.LIGHT)
+        WtSections.wtSectionBgGrayLight
+    else WtSections.wtSectionBgGrayDark
+
     Div(attrs = {
         classes(WtCols.wtColInline)
     }) {
         Section({
-            classes(WtSections.wtSectionBgGrayDark)
+            classes(navigationTheme)
             style {
                 padding(24.px, 0.px)
             }
@@ -130,11 +134,15 @@ private fun navigation(page: MutableState<Constants.Page>, theme: MutableState<C
 
 @Composable
 private fun theme(theme: MutableState<Constants.Theme>) {
+    val themeTheme = if (theme.value == Constants.Theme.LIGHT)
+        WtSections.wtSectionBgGrayLight
+    else WtSections.wtSectionBgGrayDark
+
     Div(attrs = {
         classes(WtCols.wtColInline)
     }) {
         Section({
-            classes(WtSections.wtSectionBgGrayDark)
+            classes(themeTheme)
             style {
                 padding(24.px, 0.px)
             }

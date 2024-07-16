@@ -14,8 +14,9 @@ package.
 
 This repository hosts the source code for my personal website.
 
-The website is written in Kotlin '[Compose for Web](https://compose-web.ui.pages.jetbrains.team/)' by JetBrains, and
-compiled using Gradle.
+The website is written in Kotlin '[Compose for Web](https://compose-web.ui.pages.jetbrains.team/)' (
+or [Compose Multiplatform - HTML](https://github.com/JetBrains/compose-multiplatform/tree/master/html)) by JetBrains,
+and compiled using Gradle.
 
 The source is hosted on this [`main`](https://github.com/Renegade-Master/renegade-master.github.io) branch, while the
 compiled web files are stored on the

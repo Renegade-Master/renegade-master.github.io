@@ -46,7 +46,7 @@ fun main() {
             MainContentLayout {
                 when (page.value) {
                     Constants.Page.LANDING -> {
-                        Intro()
+                        Intro(theme)
                         projectSamples()
                     }
 
