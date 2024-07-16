@@ -25,7 +25,7 @@ import com.renegademaster.content.Header
 import com.renegademaster.content.Intro
 import com.renegademaster.content.PageFooter
 import com.renegademaster.content.ProjectListing
-import com.renegademaster.content.ProjectSamples
+import com.renegademaster.content.projectSamples
 import org.jetbrains.compose.web.css.Style
 import org.jetbrains.compose.web.renderComposable
 import org.jetbrains.style.AppStylesheet
@@ -46,7 +46,7 @@ fun main() {
                 when (page.value) {
                     Constants.Page.LANDING -> {
                         Intro()
-                        ProjectSamples()
+                        projectSamples()
                     }
 
                     Constants.Page.ABOUT -> {

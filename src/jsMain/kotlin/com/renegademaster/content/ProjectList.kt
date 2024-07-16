@@ -47,6 +47,27 @@ import org.jetbrains.style.WtOffsets
 import org.jetbrains.style.WtRows
 import org.jetbrains.style.WtTexts
 
+private val personalWebsite = ProjectData(
+    title = "This website",
+    description = """
+        A personal website created using the Kotlin Jetpack Compose library by JetBrains and Google. The source code is 
+        stored on GitHub with an Action to automatically upload new files to be hosted using GitHub Pages. Finally, the 
+        domain is registered using CloudFlare.
+    """.trimIndent(),
+    repo = "renegade-master.github.io",
+    link = "https://github.com/Renegade-Master/renegade-master.github.io"
+)
+
+private val dotfiles = ProjectData(
+    title = "My Dotfiles",
+    description = """
+        This repository contains the configuration files that I generally use. There are configurations and scripts that
+         can be used for me to quickly set up my working environment on any host.
+    """.trimIndent(),
+    repo = "dotfiles",
+    link = "https://github.com/Renegade-Master/dotfiles"
+)
+
 private val projectZomboidProject = ProjectData(
     title = "Project Zomboid Dedicated Server",
     description = """
@@ -77,30 +98,23 @@ private val asusWrtGoClient = ProjectData(
     link = "https://github.com/Renegade-Master/asuswrt-api"
 )
 
-private val personalWebsite = ProjectData(
-    title = "This website",
-    description = """
-        A personal website created using the Kotlin Jetpack Compose library by JetBrains and Google. The source code is 
-        stored on GitHub with an Action to automatically upload new files to be hosted using GitHub Pages. Finally, the 
-        domain is registered using CloudFlare.
-    """.trimIndent(),
-    repo = "renegade-master.github.io",
-    link = "https://github.com/Renegade-Master/renegade-master.github.io"
-)
-
 private val allProjects = arrayOf(
-    projectZomboidProject,
     personalWebsite,
-    asusWrtGoClient,
+    dotfiles,
+    projectZomboidProject,
     steamCmdMinimalProject,
+    asusWrtGoClient,
 )
 
 private var currentProject: ProjectData by mutableStateOf(allProjects[0])
 private var selectedProjectIx: Int by mutableStateOf(0)
 
 
+/**
+ * This Composable is for displaying a Switcher containing Projects to be displayed.
+ */
 @Composable
-fun ProjectSamples() {
+fun projectSamples() {
     ContainerInSection {
         Div({
             classes(WtRows.wtRow)
@@ -124,13 +138,13 @@ fun ProjectSamples() {
             }
         }
 
-        ProjectSample(currentProject)
+        projectShowcase(currentProject)
     }
 }
 
 
 @Composable
-private fun ProjectSample(project: ProjectData) {
+private fun projectShowcase(project: ProjectData) {
     H3({
         classes(WtTexts.wtH3, WtOffsets.wtTopOffset48)
     }) {
@@ -145,12 +159,12 @@ private fun ProjectSample(project: ProjectData) {
             padding(12.px, 16.px)
         }
     }) {
-        ProjectSampleCard(project)
+        projectShowcaseCard(project)
     }
 }
 
 @Composable
-private fun ProjectSampleCard(project: ProjectData) {
+private fun projectShowcaseCard(project: ProjectData) {
     Div({
         style {
             maxHeight(25.em)
