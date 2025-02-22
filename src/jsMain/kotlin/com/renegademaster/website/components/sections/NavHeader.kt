@@ -53,7 +53,7 @@ private fun MenuItems() {
 @Composable
 private fun ColorModeButton() {
     var colorMode by ColorMode.currentState
-    IconButton(onClick = { colorMode = colorMode.opposite },) {
+    IconButton(onClick = { colorMode = colorMode.opposite }) {
         if (colorMode.isLight) MoonIcon() else SunIcon()
     }
     Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
@@ -99,10 +99,16 @@ enum class SideMenuState {
 
 @Composable
 fun NavHeader() {
+    var colorMode by ColorMode.currentState
+    val logoImage = if (colorMode.isDark) "dark-renegade-master-logo.png" else "light-renegade-master-logo.png"
+
     Row(NavHeaderStyle.toModifier(), verticalAlignment = Alignment.CenterVertically) {
-        Link("https://kobweb.varabyte.com") {
+        Link("https://renegade-master.com") {
             // Block display overrides inline display of the <img> tag, so it calculates centering better
-            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
+            Image(logoImage, "Renegade Master Logo",
+                Modifier
+                    .height(10.cssRem)
+                    .display(DisplayStyle.Block))
         }
 
         Spacer()
@@ -116,13 +122,14 @@ fun NavHeader() {
             Modifier
                 .fontSize(1.5.cssRem)
                 .gap(1.cssRem)
+                // Only display this section if the screen width is too narrow
                 .displayUntil(Breakpoint.MD),
             verticalAlignment = Alignment.CenterVertically
         ) {
             var menuState by remember { mutableStateOf(SideMenuState.CLOSED) }
 
             ColorModeButton()
-            HamburgerButton(onClick =  { menuState = SideMenuState.OPEN })
+            HamburgerButton(onClick = { menuState = SideMenuState.OPEN })
 
             if (menuState != SideMenuState.CLOSED) {
                 SideMenu(
