@@ -1,6 +1,10 @@
 package com.renegademaster.website.components.sections
 
 import androidx.compose.runtime.*
+import com.renegademaster.website.RenegadeMasterLogo
+import com.renegademaster.website.RenegadeMasterLogo.logo
+import com.renegademaster.website.RenegadeMasterLogo.logoLeft
+import com.renegademaster.website.RenegadeMasterLogo.logoRight
 import com.varabyte.kobweb.browser.dom.ElementTarget
 import com.varabyte.kobweb.compose.css.functions.clamp
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -10,7 +14,6 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.CloseIcon
 import com.varabyte.kobweb.silk.components.icons.HamburgerIcon
 import com.varabyte.kobweb.silk.components.icons.MoonIcon
@@ -34,9 +37,34 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
 import com.renegademaster.website.components.widgets.IconButton
 import com.renegademaster.website.toSitePalette
+import com.varabyte.kobweb.compose.ui.toAttrs
+import org.jetbrains.compose.web.dom.Br
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Text
 
 val NavHeaderStyle = CssStyle.base {
     Modifier.fillMaxWidth().padding(1.cssRem)
+}
+
+@Composable
+private fun RenegadeMasterLogo() {
+    val color = ColorMode.current.toSitePalette().cobweb
+
+    Div(attrs = RenegadeMasterLogo.navbar.toAttrs()) {
+        Div(attrs = logo.toAttrs()) {
+            Div(attrs = logoLeft.toAttrs()) {
+                Text("RM")
+            }
+            Div(attrs = logoRight.toAttrs()) {
+                P() {
+                    Text("Renegade")
+                    Br()
+                    Text("Master")
+                }
+            }
+        }
+    }
 }
 
 @Composable
@@ -105,10 +133,11 @@ fun NavHeader() {
     Row(NavHeaderStyle.toModifier(), verticalAlignment = Alignment.CenterVertically) {
         Link("https://renegade-master.com") {
             // Block display overrides inline display of the <img> tag, so it calculates centering better
-            Image(logoImage, "Renegade Master Logo",
-                Modifier
-                    .height(10.cssRem)
-                    .display(DisplayStyle.Block))
+//            Image(logoImage, "Renegade Master Logo",
+//                Modifier
+//                    .height(10.cssRem)
+//                    .display(DisplayStyle.Block))
+            RenegadeMasterLogo()
         }
 
         Spacer()
@@ -174,7 +203,10 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
                 horizontalAlignment = Alignment.End
             ) {
                 CloseButton(onClick = { close() })
-                Column(Modifier.padding(right = 0.75.cssRem).gap(1.5.cssRem).fontSize(1.4.cssRem), horizontalAlignment = Alignment.End) {
+                Column(
+                    Modifier.padding(right = 0.75.cssRem).gap(1.5.cssRem).fontSize(1.4.cssRem),
+                    horizontalAlignment = Alignment.End
+                ) {
                     MenuItems()
                 }
             }
