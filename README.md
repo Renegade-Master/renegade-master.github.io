@@ -2,13 +2,8 @@
 
 # References
 
-Makes use of the [JetBrains Official Compose Documentation](https://github.com/JetBrains/compose-jb/) for structural
-templates, and to help understand how Compose for Web is supposed to work.
-
-Examples that I learned from to create this website can be found under
-the [`examples` directory](https://github.com/JetBrains/compose-jb/tree/master/examples). All JetBrains files taken from
-their examples are held in their unmodified state under the [`org.jetbrains`](./src/jsMain/kotlin/org/jetbrains/)
-package.
+Makes use of [Kobweb Compose HTML Framework](https://kobweb.varabyte.com/), with some references to
+the [JetBrains Official Compose Documentation](https://github.com/JetBrains/compose-jb/).
 
 ## Description
 
@@ -46,6 +41,7 @@ This section details how to update the dependencies of this project.
 |----------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Gradle         | [Compatibility](https://docs.gradle.org/current/userguide/compatibility.html#kotlin)                                            |
 | Kotlin Compose | [Compatibility and Versions](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html) |
+| Kobweb         | [Compatibility and Versions](https://github.com/varabyte/kobweb/blob/main/COMPATIBILITY.md)                                     |
 
 | Dependency                          | Gradle Link                                                                   |
 |-------------------------------------|-------------------------------------------------------------------------------|

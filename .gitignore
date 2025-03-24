@@ -1,5 +1,9 @@
 ### Project Specific Entries ###
 
+# Kobweb ignores
+.kobweb/*
+!.kobweb/conf.yaml
+
 # KotlinJS
 kotlin-js-store/
 .kotlin/

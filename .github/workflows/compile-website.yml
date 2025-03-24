@@ -25,7 +25,7 @@ jobs:
         distribution: zulu
 
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
+      uses: gradle/actions/setup-gradle@v4
       with:
         gradle-version: wrapper
 
@@ -33,7 +33,8 @@ jobs:
       uses: browser-actions/setup-firefox@v1
 
     - name: Compile the website into static files
-      run: ./gradlew clean build jsBrowserDistribution
+      run:
+        ./gradlew clean build kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=FULLSTACK -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --stacktrace
 
     - name: Upload generated pages
       if: ${{ success() }}
@@ -41,7 +42,7 @@ jobs:
       with:
         name: website-files
         path: |
-          build/dist/js/productionExecutable/*
+          .kobweb/site/*
 
   upload-compiled-pages:
     name: "Upload Compiled Website to GH-Pages Branch"
@@ -65,7 +66,7 @@ jobs:
     - name: Investigate
       run: |
         cat ./index.html
-        cat ./renegademaster-website.js
+        cat ./website.js
 
     - name: Commit and Push
       run: |
